@@ -1,11 +1,11 @@
-require_relative 'product_manager'
+require_relative 'inventory'
 require_relative 'order'
 
 OWNER_PASSWORD = 'secret123'
 
 class UserInterface
   def initialize
-    @product_manager = ProductManager.new
+    @inventory = Inventory.new
     @order = Order.new
   end
 
@@ -65,19 +65,19 @@ class UserInterface
 
       case choice
       when 1
-        @product_manager.list_all
+        @inventory.list_all
       when 2
         print 'Keyword: '
         kw = gets.chomp
-        @product_manager.search(kw)
+        @inventory.search(kw)
       when 3
-        @product_manager.add_product
+        @inventory.add_product
       when 4
-        @product_manager.update_product
+        @inventory.update_product
       when 5
         print 'ID to delete: '
         id = gets.chomp
-        if @product_manager.delete_product(id)
+        if @inventory.delete_product(id)
           puts 'Deleted.'
         else
           puts 'Not found.'
@@ -106,15 +106,15 @@ class UserInterface
 
       case choice
       when 1
-        @product_manager.list_all
+        @inventory.list_all
       when 2
         print 'Keyword: '
         kw = gets.chomp
-        @product_manager.search(kw)
+        @inventory.search(kw)
       when 3
         print 'Product ID to order: '
         pid = gets.chomp
-        if @product_manager.product_exists?(pid)
+        if @inventory.product_exists?(pid)
           @order.place_order(pid)
         else
           puts 'Product not found.'

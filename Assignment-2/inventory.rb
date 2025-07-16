@@ -1,6 +1,6 @@
 require_relative 'product'
 
-class ProductManager
+class Inventory
   FILE = 'products.csv'
 
   def initialize
