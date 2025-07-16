@@ -1,21 +1,4 @@
-def calculate(operand1, operand2, operator)
-  case operator
-  when '+'
-    operand1 + operand2
-  when '-'
-    operand1 - operand2
-  when '*'
-    operand1 * operand2
-  when '/'
-    return 'Error: Division by zero' if operand2 == 0
-
-    operand1.to_f / operand2
-  else
-    'Error: Invalid operator'
-  end
-end
-
-puts 'Welcome to the Ruby Calculator!'
+ops_array = ['+', '-', '*', '/']
 
 while true
 
@@ -27,10 +10,12 @@ while true
 
   print 'Enter the operator : '
   op = gets.chomp
-
-  result = calculate(num1, num2, op)
-
-  puts "Result: #{result}"
+  if !ops_array.include?(op)
+    puts 'Error: Invalid operator. Please use one of the following: +, -, *, /'
+  else
+    result = num1.send(op, num2)
+    puts "Result: #{result}"
+  end
 
   puts 'Would you like to perform another calculation? (y/n)'
 
