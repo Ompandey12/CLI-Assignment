@@ -3,7 +3,7 @@ require_relative 'order'
 
 OWNER_PASSWORD = 'secret123'
 
-class UserDashboard
+class MarketplaceDashboard
   def initialize
     @inventory = Inventory.new
     @order = Order.new
@@ -131,4 +131,4 @@ class UserDashboard
   end
 end
 
-UserDashboard.new.main_menu
+MarketplaceDashboard.new.main_menu
