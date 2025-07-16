@@ -3,13 +3,13 @@ require_relative 'order'
 
 OWNER_PASSWORD = 'secret123'
 
-class UserInterface
+class UserDashboard
   def initialize
     @inventory = Inventory.new
     @order = Order.new
   end
 
-  def start
+  def main_menu
     loop do
       puts "\nSelect role:"
       puts '1. Warehouse Owner'
@@ -131,4 +131,4 @@ class UserInterface
   end
 end
 
-UserInterface.new.start
+UserDashboard.new.main_menu
